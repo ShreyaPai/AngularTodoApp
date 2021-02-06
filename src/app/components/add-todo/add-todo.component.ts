@@ -8,6 +8,8 @@ import { TodoModel } from 'src/app/models/todo.model';
 })
 export class AddTodoComponent implements OnInit {
   title: string;
+  isTodoEmpty: boolean = false;
+  todoEmptyMessage = '';
   @Output() addTodo: EventEmitter<any> = new EventEmitter();
   constructor() {}
 
@@ -19,6 +21,12 @@ export class AddTodoComponent implements OnInit {
       title: this.title,
       completed: false,
     };
-    this.addTodo.emit(todo);
+    if (todo.title) {
+      this.isTodoEmpty = false;
+      this.addTodo.emit(todo);
+    } else {
+      this.isTodoEmpty = true
+      this.todoEmptyMessage = 'Nothing to Add'
+    }
   }
 }

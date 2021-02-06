@@ -7,6 +7,6 @@ h1 {
 
 .todo-class {
   border: 1px solid black;
-  height: 300px;
+  min-height: 300px;
   margin: auto;
 }
