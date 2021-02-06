@@ -1,6 +1,12 @@
 h1 {
-  background-color: orange;
-  color: whitesmoke;
+  background-color: yellow;
+  color: black;
   text-align: center;
   padding: 10px;
+}
+
+.todo-class {
+  border: 1px solid black;
+  height: 300px;
+  margin: auto;
 }

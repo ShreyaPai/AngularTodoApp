@@ -1,12 +1,15 @@
 <div class="form-group">
   <form (ngSubmit)="onSubmit()">
-    <input
+    <div class="input-group">
+      <input
       type="text"
       name="title"
       [(ngModel)]="title"
       placeholder="New Task"
       required
     />
+    <br />
     <input type="submit" value="Add Task" class="button" />
+    </div>
   </form>
 </div>
