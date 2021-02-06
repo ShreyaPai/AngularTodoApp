@@ -11,6 +11,7 @@ export class AddTodoComponent implements OnInit {
   isTodoEmpty: boolean = false;
   todoEmptyMessage = '';
   @Output() addTodo: EventEmitter<any> = new EventEmitter();
+  id: number = 1;
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,11 +19,13 @@ export class AddTodoComponent implements OnInit {
   onSubmit() {
     console.log('Submitted');
     const todo = {
+      id: this.id,
       title: this.title,
       completed: false,
     };
     if (todo.title) {
       this.isTodoEmpty = false;
+      this.id++;
       this.addTodo.emit(todo);
     } else {
       this.isTodoEmpty = true

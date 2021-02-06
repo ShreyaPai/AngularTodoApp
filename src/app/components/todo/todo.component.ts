@@ -9,6 +9,8 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class TodoComponent implements OnInit {
   todos: TodoModel[];
+  failureMessage: string;
+  displayFailureMessage: boolean;
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
@@ -19,12 +21,20 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(todo : TodoModel) {
     this.todos = this.todos.filter(t => t.id !== todo.id);
-    this.todoService.deleteTodo(todo).subscribe();
+    this.todoService.deleteTodo(todo).subscribe((_) => {
+
+    }, error => {
+      this.displayFailureMessage = true;
+      this.failureMessage = 'Unable to Delete right now, try again in sometime.'
+    });
   }
 
   addTodo(todo : TodoModel) {
     this.todoService.addTodo(todo).subscribe(todo => {
       this.todos.push(todo);
+    }, error => {
+      this.displayFailureMessage = true;
+      this.failureMessage = 'Unable to Add right now, try again in sometime.'
     })
   }
 }
