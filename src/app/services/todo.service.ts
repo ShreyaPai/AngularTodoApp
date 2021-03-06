@@ -14,7 +14,7 @@ import { Configuration } from '../configuration'
   providedIn: 'root',
 })
 export class TodoService {
-  url = Configuration.url;
+  url = 'https://jsonplaceholder.typicode.com/todos';
 
    // limit = '';
 

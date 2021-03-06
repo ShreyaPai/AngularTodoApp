@@ -24,8 +24,8 @@ export class AddTodoComponent implements OnInit {
       completed: false,
     };
     if (todo.title) {
-      this.isTodoEmpty = false;
       this.id++;
+      this.isTodoEmpty = false;
       this.addTodo.emit(todo);
     } else {
       this.isTodoEmpty = true
